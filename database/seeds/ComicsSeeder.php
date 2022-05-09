@@ -126,12 +126,7 @@ class ComicsSeeder extends Seeder
         foreach ($arrComics as $comicData) {
             $comic = new Comic();
             $comic->fill($comicData);
-            $comic->save();
-
-            
+            $comic->save();  
         }
-
-        
-
     }
 }

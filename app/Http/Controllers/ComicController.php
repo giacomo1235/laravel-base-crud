@@ -17,7 +17,7 @@ class ComicController extends Controller
         
         $comics = Comic::paginate(15);
     
-        return view('index', compact('comics'));
+        return view('comics.index', compact('comics'));
     }
 
     /**
@@ -49,7 +49,7 @@ class ComicController extends Controller
      */
     public function show(Comic $comic)
     {
-        return view('show', [
+        return view('comics.show', [
             'title' => $comic->title,
             'comic' => $comic
         ]);

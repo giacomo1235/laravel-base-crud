@@ -11,7 +11,7 @@
                 <div class="card h-100">
                     <img src="{{ $comic->thumb }}" alt="{{ $comic->title }}">
                     <div class="card-body">
-                        <h2 class="card-title"><a href="{{ route('show', $comic->id) }}">{{ $comic->title }}</a></h2>
+                        <h2 class="card-title"><a href="{{ route('comics.show', $comic->id) }}">{{ $comic->title }}</a></h2>
                         <p class="card-text">{{ $comic->description }}</p>
                     </div>
                 </div>

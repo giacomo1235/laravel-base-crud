@@ -14,7 +14,7 @@
                 <a class="nav-link" href="{{ route('comics.index') }}">Comics List</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
+                <a class="nav-link" href="{{ route('comics.create') }}">Create</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Pricing</a>

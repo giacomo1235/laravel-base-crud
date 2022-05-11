@@ -3,7 +3,7 @@
 @section('title', 'Comics Listing')
 
 @section('main')
-   <form action="POST" action="{{route('comics.store')}}">
+   <form method="POST" action="{{route('comics.store')}}">
        @csrf
        <div class="mb-3">
         <label for="title" class="form-label">Titolo</label>

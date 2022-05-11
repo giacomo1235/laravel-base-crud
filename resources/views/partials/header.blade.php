@@ -16,12 +16,6 @@
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('comics.create') }}">Create</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
-              </li>
             </ul>
           </div>
         </div>

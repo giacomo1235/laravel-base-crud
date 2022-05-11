@@ -1,7 +1,7 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{{route('home')}}">
                 <img src="https://loghi-famosi.com/wp-content/uploads/2020/08/DC-Comics-Logo.png" alt="" width="70" height="40" class="d-inline-block align-text-center">
                 DC Comics
               </a>

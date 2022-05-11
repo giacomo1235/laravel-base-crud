@@ -1,1 +1,5 @@
-<a href="{{ route('comics.index') }}">La lista dei fumetti</a>
+@extends('templates.base')
+
+@section('title', 'Comics Homepage')
+
+@section('main')

@@ -17,7 +17,7 @@ class CreateComicsTable extends Migration
             $table->id();
             $table->string('title', 70);
             $table->text('description');
-            $table->string('thumb', 250)->default('https://kbimages1-a.akamaihd.net/795d78ec-0caf-4c2b-9301-b388622ec93d/1200/1200/False/one-punch-man-vol-21.jpg')->nullable();
+            $table->string('thumb', 250)->default('https://kbimages1-a.akamaihd.net/795d78ec-0caf-4c2b-9301-b388622ec93d/1200/1200/False/one-punch-man-vol-21.jpg');
             $table->integer('price');
             $table->string('series', 250);
             $table->date('sale_date');

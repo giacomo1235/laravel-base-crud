@@ -7,6 +7,20 @@ use App\Comic;
 
 class ComicController extends Controller
 {
+
+    protected $validations = [
+
+        'title'       => 'required | max:70',
+        'description' => 'required ',
+        'thumb'       => 'required | URL | max:250',
+        'price'       => 'numeric',
+        'series'      => 'required | max:250',
+        'sale_date'   => 'required',
+        'type'        => 'required | max:20'
+
+
+
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +29,7 @@ class ComicController extends Controller
     public function index()
     {
         
-        $comics = Comic::paginate(15);
+        $comics = Comic::paginate(4);
     
         return view('comics.index', compact('comics'));
     }
@@ -38,6 +52,7 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate( $this->validations);
         $formData = $request->all();
         $newComic = Comic::create($formData);
 
@@ -64,9 +79,9 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Comic $comic)
     {
-        //
+        return view('comics.edit', compact('comic'));
     }
 
     /**
@@ -76,9 +91,12 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Comic $comic)
     {
-        //
+        $formData = $request->all();
+        $comic->update($formData);
+
+        return redirect()->route('comics.show', $comic->id);
     }
 
     /**
@@ -87,8 +105,9 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Comic $comic)
     {
-        //
+        $comic->delete();
+        return redirect()->route('comics.index');
     }
 }

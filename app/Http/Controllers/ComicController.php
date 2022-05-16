@@ -13,7 +13,7 @@ class ComicController extends Controller
         'title'       => 'required | max:70',
         'description' => 'required ',
         'thumb'       => 'required | URL | max:250',
-        'price'       => 'numeric',
+        'price'       => 'required | numeric',
         'series'      => 'required | max:250',
         'sale_date'   => 'required',
         'type'        => 'required | max:20'
@@ -39,9 +39,10 @@ class ComicController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         return view('comics.create');
+        $request->validate( $this->validations);
     }
 
     /**
@@ -79,8 +80,9 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Comic $comic)
+    public function edit(Comic $comic )
     {
+        // $request->validate( $this->validations);
         return view('comics.edit', compact('comic'));
     }
 
@@ -95,7 +97,7 @@ class ComicController extends Controller
     {
         $formData = $request->all();
         $comic->update($formData);
-
+        $request->validate( $this->validations);
         return redirect()->route('comics.show', $comic->id);
     }
 

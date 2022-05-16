@@ -35,7 +35,7 @@
         <input type="text" class="form-control" id="type" name="type" value="{{$comic->type}}">
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
+      <a href="{{ url()->previous() }}">Back</a>
    </form>
-   <a href="{{ url()->previous() }}">Back</a>
 
 @endsection

@@ -12173,3 +12173,27 @@ fieldset:disabled .btn {
   }
 }
 
+.overlay {
+  display: flex;
+  position: fixed;
+  text-align: center;
+  text-transform: uppercase;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.overlay .popup {
+  margin: auto;
+  height: 90vh;
+  width: 80%;
+  max-width: 300px;
+  max-height: 200px;
+  background-color: white;
+  border-radius: 0.5em;
+}
+
+.overlay .popup .btn-container {
+  display: flex;
+  justify-content: space-around;
+}
+

@@ -18,11 +18,7 @@
                     </div>
                     <div class=" m-2 d-flex justify-content-around">
                         <a class="btn btn-primary" href="{{ route('comics.edit', $comic->id) }}">Edit</a>
-                        <form action="{{route('comics.destroy', $comic->id)}}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn btn-danger ">Delete</button>
-                        </form>
+                        <button class="btn btn-danger btn-delete" data-id="{{$comic->id}}">Delete</button>
                     </div>
                 </div>
                 
@@ -31,5 +27,19 @@
     </div>
 
     {{ $comics->links() }}
+
+    <section id="confirmation-overlay" class="overlay" style="display:none; ">
+        <div class="popup">
+            <h1>ne sei proprio sicuro?</h1>
+           <div class="btn-container m-5">
+                <button id="btn-no" class="btn btn-primary">No</button>
+                <form  method="POST" data-base="{{ route('comics.index') }}">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger ">Yes</button>
+                </form>
+           </div>
+        </div>
+    </section>
 </div>
 @endsection

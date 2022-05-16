@@ -27603,6 +27603,18 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
+var confirmationOverlay = document.getElementById('confirmation-overlay');
+var confirmationForm = confirmationOverlay.querySelector('form');
+document.querySelectorAll('.btn-delete').forEach(function (button) {
+  return [button.addEventListener('click', function () {
+    var self = this;
+    confirmationOverlay.style.display = 'flex';
+    confirmationForm.action = confirmationForm.dataset.base + '/' + self.dataset.id;
+    document.getElementById('btn-no').addEventListener('click', function () {
+      confirmationOverlay.style.display = 'none';
+    });
+  })];
+});
 
 /***/ }),
 
